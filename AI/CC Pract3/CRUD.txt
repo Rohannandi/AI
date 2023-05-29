@@ -1,0 +1,33 @@
+// Define the Opportunity object
+public class OpportunityExample {
+    
+    // Create an Opportunity record
+    public static void createOpportunity() {
+        Opportunity opp = new Opportunity();
+        opp.Name = 'New Opportunity';
+        opp.StageName = 'Prospecting';
+        opp.CloseDate = Date.today().addDays(30);
+        opp.Amount = 50000;
+        insert opp;
+    }
+    
+    // Update an Opportunity record
+    public static void updateOpportunity() {
+        Opportunity opp = [SELECT Id, Name, StageName, CloseDate, Amount FROM Opportunity WHERE Name = 'New Opportunity' LIMIT 1];
+        opp.StageName = 'Qualification';
+        opp.Amount = 75000;
+        update opp;
+    }
+    
+    // Delete an Opportunity record
+    public static void deleteOpportunity() {
+        Opportunity opp = [SELECT Id FROM Opportunity WHERE Name = 'New Opportunity' LIMIT 1];
+        delete opp;
+    }
+    
+    // Query for Opportunity records
+    public static void queryOpportunities() {
+        List<Opportunity> opps = [SELECT Id, Name, StageName, CloseDate, Amount FROM Opportunity WHERE Amount > 50000];
+        System.debug(opps);
+    }
+}

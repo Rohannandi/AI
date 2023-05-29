@@ -1,0 +1,13 @@
+public class EvenAndOdd {
+    
+    public static void main(Integer x){
+        Integer y = x/2;
+       
+        Integer z = y * 2;
+        if(x == z ){
+            System.debug('The number is even.');
+        }else{
+            System.debug('The number is odd.');
+        }
+    }
+}
